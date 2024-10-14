@@ -1,0 +1,119 @@
+body {
+    background-image: url(flappy-bird.gif);
+    font-family: Arial, sans-serif;
+    background-repeat: bottom center;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* Full viewport height */
+    overflow: hidden;
+    display: flex;
+    /* Flexbox for horizontal layout */
+    flex-direction: row;
+    /* Default to row direction */
+    align-items: flex-end;
+    /* Align items at the bottom */
+}
+
+.bird {
+    position: absolute;
+    width: 70px;
+    height: 50px;
+    background: url(ed2486e727811f19426c7d7c2d1b15e3.gif);
+    background-position: center;
+    background-size: cover;
+    border-radius: 55%;
+    bottom: 100px;
+    /* Initial position from the bottom */
+    transition: bottom 0.1s;
+    /* Smooth movement */
+}
+
+.obstacle {
+    position: absolute;
+    width: 70px;
+    /* Width of the obstacle */
+    background: rgb(233, 18, 18);
+    /* Obstacle color */
+    bottom: 0;
+    /* Start from the bottom */
+}
+
+
+/* Adjust score board, message, and play again button position */
+
+#score-board {
+    position: absolute;
+    text-align: center;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: rgb(0, 0, 0);
+    /* Score text color */
+}
+
+.message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: rgb(0, 0, 0);
+    /* Message text color */
+    display: none;
+    /* Initially hidden */
+}
+
+.play-again {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: rgb(7, 112, 80);
+    border: none;
+    cursor: pointer;
+    display: none;
+    /* Initially hidden */
+    color: white;
+}
+
+
+/* Media query for mobile devices */
+
+@media screen and (max-width: 768px) {
+    .game-container {
+        flex-direction: row;
+        /* Set to row for horizontal layout */
+        height: 100vh;
+        /* Keep full height */
+    }
+    .bird {
+        bottom: 50%;
+        /* Center bird vertically */
+    }
+    #score-board {
+        top: 10px;
+        /* Position score at the top */
+        left: 20px;
+        /* Adjust as necessary */
+    }
+    .message {
+        top: 50%;
+        /* Position message in the center */
+    }
+    .play-again {
+        top: 60%;
+        /* Position play again button */
+    }
+    .obstacle {
+        height: 100%;
+        /* Obstacles take full height in horizontal layout */
+        width: 30px;
+        /* Keep obstacle width */
+    }
+}
